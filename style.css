@@ -145,8 +145,6 @@ body {
   border-radius: 4px;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
-  -webkit-transition: all 0.3s cubic-bezier(0.77, 4.12, 0.74, -1.33);
-  transition: all 0.3s cubic-bezier(0.77, 4.12, 0.74, -1.33);
 }
 
 .clock__hand--hour {
@@ -158,5 +156,7 @@ body {
   background-color: #ef233c;
   width: 0.4rem;
   z-index: 30;
+  -webkit-transition: all 0.3s cubic-bezier(0.77, 4.12, 0.74, -1.33);
+  transition: all 0.3s cubic-bezier(0.77, 4.12, 0.74, -1.33);
 }
 /*# sourceMappingURL=style.css.map */
