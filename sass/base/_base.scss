@@ -1,0 +1,26 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%; // 1rem = 10px (10px/16px = 62.5%)
+  cursor: default;
+}
+
+body {
+  font-family: PilotCommand;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $color-background;
+  height: 100vh;
+  width: 100vw;
+}
