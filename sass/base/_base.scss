@@ -20,7 +20,17 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: $color-background;
   height: 100vh;
   width: 100vw;
+  // background-color: $color-background;
+}
+
+.body {
+  background: $color-light;
+}
+
+@media (prefers-color-scheme: dark) {
+  .body.dark-scheme {
+    background: $color-dark;
+  }
 }

@@ -1,12 +1,18 @@
 .clock {
   width: 30rem;
   height: 30rem;
-  background-color: $color-background;
+  background-color: $color-light;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
+
+  @media (prefers-color-scheme: dark) {
+    &.dark-scheme {
+      background: $color-dark;
+    }
+  }
 
   &__number {
     width: 0.5rem;
@@ -14,6 +20,12 @@
     background-color: $color-secondary;
     position: absolute;
     border-radius: 3px;
+
+    @media (prefers-color-scheme: dark) {
+      &.dark-scheme {
+        background: $color-dark-text;
+      }
+    }
 
     // 10 o'clock
     &--1 {
@@ -51,18 +63,31 @@
     position: absolute;
     width: 80%;
     height: 80%;
-    background-color: $color-background;
+    background-color: $color-light;
     border-radius: 50%;
     z-index: 10;
     display: flex;
     justify-content: center;
     align-items: center;
 
+    @media (prefers-color-scheme: dark) {
+      &.dark-scheme {
+        background: $color-dark;
+      }
+    }
+
     &__text {
       transform: translateY(-5rem);
       font-size: 2rem;
       text-transform: uppercase;
       color: $color-secondary;
+      background-color: transparent;
+
+      @media (prefers-color-scheme: dark) {
+        &.dark-scheme {
+          color: $color-dark-text;
+        }
+      }
     }
 
     &--dot {
@@ -72,6 +97,12 @@
       border-radius: 50%;
       background-color: $color-secondary;
       z-index: 50;
+
+      @media (prefers-color-scheme: dark) {
+        &.dark-scheme {
+          background: $color-dark-text;
+        }
+      }
     }
   }
 
@@ -84,6 +115,12 @@
     transform-origin: bottom center;
     border-radius: 4px;
     transform: translateY(-50%);
+
+    @media (prefers-color-scheme: dark) {
+      &.dark-scheme {
+        background: $color-dark-text;
+      }
+    }
 
     &--hour {
       height: 20%;
@@ -99,7 +136,7 @@
       background-color: $color-quaternary;
       width: 0.4rem;
       z-index: 30;
-      transition: all 0.3s cubic-bezier(0.77, 4.12, 0.74, -1.33);
+      transition: all 0.2s cubic-bezier(0.5, 3, 0, 0);
       // transform: translateY(-50%) rotate(173deg);
     }
   }
