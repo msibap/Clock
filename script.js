@@ -1,8 +1,6 @@
 "use strict";
 var secondStarter = null;
 var secondDegree = null;
-var minuteStarter = null;
-var minuteDegree = null;
 
 const hourHand = document.querySelector(".clock__hand--hour");
 const minuteHand = document.querySelector(".clock__hand--minute");
@@ -17,7 +15,7 @@ function setDate() {
   secondHand.style.transform = `translateY(-50%) rotate(${secondDegree}deg)`;
 
   const minute = time.getMinutes();
-  //   const minuteDegree = (minute / 60) * 360 + (second / 60) * 6;
+  const minuteDegree = (minute / 60) * 360 + (second / 60) * 6;
   minuteHand.style.transform = `translateY(-50%) rotate(${minuteDegree}deg)`;
 
   const hour = time.getHours();
@@ -31,15 +29,6 @@ function setDate() {
   if (secondStarter < 354 || secondStarter == null) {
     secondStarter = 6 * second;
     secondDegree = secondStarter;
-  }
-
-  if (minuteDegree >= 359.9) {
-    minuteDegree = minuteDegree + 0.1;
-  }
-
-  if (minuteStarter < 359.9 || minuteStarter == null) {
-    minuteStarter = (minute / 60) * 360 + (second / 60) * 6;
-    minuteDegree = minuteStarter;
   }
 }
 
