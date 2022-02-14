@@ -134,3 +134,37 @@
     }
   }
 }
+
+.digital-clock {
+  font-size: 3.5rem;
+  margin: 1rem 0;
+  text-transform: uppercase;
+  text-align: center;
+  position: relative;
+  width: 30rem;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr) max-content repeat(2, 1fr);
+  grid-template-rows: 1fr;
+
+  &--hour {
+    grid-column: 2 / 3;
+    justify-self: flex-end;
+  }
+
+  &--dot {
+    grid-column: 3 / 4;
+    justify-self: center;
+  }
+
+  &--minute {
+    grid-column: 4 / 5;
+    justify-self: flex-start;
+  }
+  &--ampm {
+    grid-column: 5 / 6;
+    justify-self: flex-start;
+    align-self: flex-end;
+    font-size: 1.8rem;
+  }
+}

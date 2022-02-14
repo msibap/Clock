@@ -27,6 +27,10 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -196,5 +200,53 @@ body {
   z-index: 30;
   -webkit-transition: all 0.2s cubic-bezier(0.5, 3, 0, 0);
   transition: all 0.2s cubic-bezier(0.5, 3, 0, 0);
+}
+
+.digital-clock {
+  font-size: 3.5rem;
+  margin: 1rem 0;
+  text-transform: uppercase;
+  text-align: center;
+  position: relative;
+  width: 30rem;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[2] max-content (1fr)[2];
+      grid-template-columns: repeat(2, 1fr) -webkit-max-content repeat(2, 1fr);
+      grid-template-columns: repeat(2, 1fr) max-content repeat(2, 1fr);
+  -ms-grid-rows: 1fr;
+      grid-template-rows: 1fr;
+}
+
+.digital-clock--hour {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+  grid-column: 2 / 3;
+  justify-self: flex-end;
+}
+
+.digital-clock--dot {
+  -ms-grid-column: 3;
+  -ms-grid-column-span: 1;
+  grid-column: 3 / 4;
+  -ms-grid-column-align: center;
+      justify-self: center;
+}
+
+.digital-clock--minute {
+  -ms-grid-column: 4;
+  -ms-grid-column-span: 1;
+  grid-column: 4 / 5;
+  justify-self: flex-start;
+}
+
+.digital-clock--ampm {
+  -ms-grid-column: 5;
+  -ms-grid-column-span: 1;
+  grid-column: 5 / 6;
+  justify-self: flex-start;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  font-size: 1.8rem;
 }
 /*# sourceMappingURL=style.css.map */
