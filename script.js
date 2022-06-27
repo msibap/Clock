@@ -40,26 +40,23 @@ function time() {
   // If Hour bigger than 12 = "pm", else = "am"
   const ampm = hour24 > 12 ? "pm" : "am";
 
-  // Anlalog Clock
+  // ANALOG CLOCK
   // const secondDegree = (second / 60) * 360;
   secondHand.style.transform = `translateY(-50%) rotate(${secondDegree}deg)`;
-
   const minuteDegree = (minute / 60) * 360 + (second / 60) * 6;
   minuteHand.style.transform = `translateY(-50%) rotate(${minuteDegree}deg)`;
-
   const hourDegree = (hour24 / 12) * 360 + (minute / 60) * 30;
   hourHand.style.transform = `translateY(-50%) rotate(${hourDegree}deg)`;
 
   if (secondDegree >= 354) {
     secondDegree = secondDegree + 6;
   }
-
   if (secondStarter < 354 || secondStarter == null) {
     secondStarter = 6 * second;
     secondDegree = secondStarter;
   }
 
-  // Digital Clock
+  // DIGITAL CLOCK
   hourDigital.textContent = `${hour12}`.padStart(2, "0");
   minuteDigital.textContent = `${minute}`.padStart(2, "0");
   ampmDigital.textContent = ampm;
@@ -68,5 +65,5 @@ function time() {
     ${date}`;
 }
 
-setInterval(time, 1000);
 time();
+setInterval(time, 1000);
