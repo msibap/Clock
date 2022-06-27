@@ -27,28 +27,27 @@ const months = [
   "Dec",
 ];
 
-function setDate() {
+function time() {
+  // Calculating time
   const time = new Date();
-  const second = time.getSeconds();
-  const minute = time.getMinutes();
-  const hour = time.getHours();
-  const hour12 = hour % 12;
-  // if Hour bigger than 12 = "pm", else = "am"
-  const ampm = hour > 12 ? "pm" : "am";
-
-  const day = time.getDay();
-  const month = time.getMonth();
   const date = time.getDate();
+  const month = time.getMonth();
+  const day = time.getDay();
+  const hour24 = time.getHours();
+  const minute = time.getMinutes();
+  const second = time.getSeconds();
+  const hour12 = hour24 % 12;
+  // If Hour bigger than 12 = "pm", else = "am"
+  const ampm = hour24 > 12 ? "pm" : "am";
 
   // Anlalog Clock
-
-  //   const secondDegree = (second / 60) * 360;
+  // const secondDegree = (second / 60) * 360;
   secondHand.style.transform = `translateY(-50%) rotate(${secondDegree}deg)`;
 
   const minuteDegree = (minute / 60) * 360 + (second / 60) * 6;
   minuteHand.style.transform = `translateY(-50%) rotate(${minuteDegree}deg)`;
 
-  const hourDegree = (hour / 12) * 360 + (minute / 60) * 30;
+  const hourDegree = (hour24 / 12) * 360 + (minute / 60) * 30;
   hourHand.style.transform = `translateY(-50%) rotate(${hourDegree}deg)`;
 
   if (secondDegree >= 354) {
@@ -61,16 +60,13 @@ function setDate() {
   }
 
   // Digital Clock
-
-  // Adds Zero before the Hour if its less than 10
-  hourDigital.textContent = hour12 < 10 ? `0${hour12}` : hour12;
-  // Adds Zero before the Minute if its less than 10
-  minuteDigital.textContent = minute < 10 ? `0${minute}` : minute;
+  hourDigital.textContent = `${hour12}`.padStart(2, "0");
+  minuteDigital.textContent = `${minute}`.padStart(2, "0");
   ampmDigital.textContent = ampm;
   dateDigital.textContent = `${days[day]}
-  ${months[month]}
-  ${date}`;
+    ${months[month]}
+    ${date}`;
 }
 
-setInterval(setDate, 1000);
-setDate();
+setInterval(time, 1000);
+time();
